@@ -37,10 +37,10 @@ Webová aplikace, která zobrazuje klienty evidované v [Raynet CRM](https://ray
 
 3. Doplňte do `.env` přihlašovací údaje k Raynetu:
 
-   | Proměnná | Co do ní patří |
-   |---|---|
-   | `RAYNET_USERNAME` | e-mail, kterým se do Raynetu přihlašujete |
-   | `RAYNET_API_KEY` | API klíč, vygenerujete ho v Raynetu v nastavení svého uživatelského účtu |
+   | Proměnná          | Co do ní patří                                                                                          |
+   | ----------------- | ------------------------------------------------------------------------------------------------------- |
+   | `RAYNET_USERNAME` | e-mail, kterým se do Raynetu přihlašujete                                                               |
+   | `RAYNET_API_KEY`  | API klíč, vygenerujete ho v Raynetu v nastavení svého uživatelského účtu                                |
    | `RAYNET_INSTANCE` | název instance, tedy část adresy za `app.raynet.cz/` (např. `app.raynet.cz/moje-firma/` → `moje-firma`) |
 
 4. Spusťte vývojový server:
@@ -55,11 +55,11 @@ Webová aplikace, která zobrazuje klienty evidované v [Raynet CRM](https://ray
 
 ### Další příkazy
 
-| Příkaz | Co dělá |
-|---|---|
-| `npm run build` | kontrola typů a produkční build do `dist/` |
+| Příkaz            | Co dělá                                                    |
+| ----------------- | ---------------------------------------------------------- |
+| `npm run build`   | kontrola typů a produkční build do `dist/`                 |
 | `npm run preview` | náhled produkčního buildu (proxy na Raynet funguje i tady) |
-| `npm run lint` | ESLint |
+| `npm run lint`    | ESLint                                                     |
 
 ## Jak funguje napojení na Raynet API
 
@@ -78,13 +78,13 @@ fetch('/api/company/')  ──►    + Authorization, X-Instance-Name  ──►
 
 ## Technologie
 
-| | Proč |
-|---|---|
-| **React 19 + TypeScript + Vite** | základ projektu |
-| **Tailwind CSS 4** | styly; barvy Raynetu jsou jako tokeny v `src/index.css` |
-| **TanStack Query** | načítání dat: cache, rušení zastaralých požadavků, stavy načítání a chyb. Šetří limity Raynet API (24 000 požadavků/den, max. 4 souběžné). |
-| **Radix UI Tooltip** | bubliny v postranním panelu; stejnou knihovnu používá Raynet |
-| **DOMPurify** | sanitizace HTML poznámek před vložením do stránky (ochrana proti XSS) |
+|                                  | Proč                                                                                                                                       |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **React 19 + TypeScript + Vite** | základ projektu                                                                                                                            |
+| **Tailwind CSS 4**               | styly; barvy Raynetu jsou jako tokeny v `src/index.css`                                                                                    |
+| **TanStack Query**               | načítání dat: cache, rušení zastaralých požadavků, stavy načítání a chyb. Šetří limity Raynet API (24 000 požadavků/den, max. 4 souběžné). |
+| **Radix UI Tooltip**             | bubliny v postranním panelu; stejnou knihovnu používá Raynet                                                                               |
+| **DOMPurify**                    | sanitizace HTML poznámek před vložením do stránky (ochrana proti XSS)                                                                      |
 
 ## Struktura projektu
 
@@ -118,10 +118,3 @@ src/
 - **Barvy kategorií** se berou z číselníku Raynetu. Číselník se načte jednou a převede na mapu „ID → barva“.
 - **Poznámky** jsou v Raynetu HTML. Zobrazují se formátované, ale až po sanitizaci přes DOMPurify.
 - **Postranní panel a záložky** jsou jen vizuální kopie Raynetu. Funkční je sekce klientů.
-
-## Co bych řešil dál
-
-- **Backend nebo serverless proxy** pro nasazení mimo vývojový server.
-- **Validace dat z API za běhu** (např. Zod). Typy teď odpovídají skutečným odpovědím Raynetu, ale za běhu se nekontrolují.
-- **Vybraný klient a hledání v URL**, aby fungoval refresh, sdílení odkazu a tlačítko zpět.
-- **Testy:** jednotkové pro API vrstvu a hooky, e2e pro hlavní scénář.
