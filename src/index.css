@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* Barvy Raynetu jako tokeny (bg-raynet-page, text-raynet-blue...) */
+@theme {
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
+
+  /* změřené v Raynetu nebo dohledané v jejich CSS */
+  --color-raynet-page: #f2f4f6;
+  --color-raynet-border: #e6e8ed;
+  --color-raynet-muted: #919cb0;
+  --color-raynet-heading: #737c90;
+  --color-raynet-text: #262a32;
+  --color-raynet-teal: #0088a2;
+  --color-raynet-blue: #00a2d4;
+  --color-raynet-button: #43ae00;
+  /* stavy klienta, z jejich xCompanyStatus */
+  --color-raynet-green: #60ae00;
+  --color-raynet-amber: #c29500;
+  --color-raynet-red: #f47559;
+  /* tyhle jsem u nich nenašel, jsou moje */
+  --color-raynet-table-head: #eceff3;
+  --color-raynet-selected: #e5f6da;
+  /* jejich --background-hover-color */
+  --color-raynet-row-hover: #e4f7ff;
+
+  --shadow-raynet-card: 0 0 4px 0 rgb(0 0 0 / 0.05);
+
+  /* sidebar, jejich --main-menu-* */
+  --color-raynet-sidebar-from: #00a9ca;
+  --color-raynet-sidebar-to: #004655;
+  --color-raynet-sidebar-search: #0088a2;
+  --color-raynet-sidebar-search-icon: #a0ced8;
+  --color-raynet-sidebar-icon: #b8e7fa;
+  --color-raynet-tab-divider: #dbdce2;
+  --color-raynet-tab-border: #e0e2e8;
+  --color-raynet-tooltip: #3b404b;
+
+  /* animace bublin jako v Raynetu */
+  --animate-tooltip-in: tooltip-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-tooltip-out: tooltip-out 0.15s ease-in forwards;
+
+  @keyframes tooltip-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+  @keyframes tooltip-out {
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+}
+
+/* Tailwind resetuje odstavce a seznamy, ale HTML z poznámek žádné třídy nemá */
+@layer components {
+  .rich-text > * + * {
+    margin-top: 0.5em;
+  }
+  .rich-text ul {
+    list-style: disc;
+    padding-left: 1.25em;
+  }
+  .rich-text ol {
+    list-style: decimal;
+    padding-left: 1.25em;
+  }
+  .rich-text a {
+    color: var(--color-raynet-blue);
+    text-decoration: underline;
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-raynet-page);
+    color: var(--color-raynet-text);
+    -webkit-font-smoothing: antialiased;
+  }
+}
