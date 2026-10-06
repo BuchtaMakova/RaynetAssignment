@@ -8,8 +8,9 @@ function App() {
 
   return (
     <AppLayout>
-      {/* tabulka má pevnou šířku, když se nevejde, scrolluje se do strany */}
-      <div className="grid gap-6 pb-6 xl:grid-cols-[minmax(0,max-content)_380px] xl:pb-0">
+      {/* minmax(0, …) hlídá, aby obsah neroztáhl stránku – tabulka se pak scrolluje do strany
+          a dlouhý název firmy v detailu se zalomí */}
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 pb-6 xl:grid-cols-[minmax(0,max-content)_380px] xl:pb-0">
         <CompanyList selectedId={selectedId} onSelect={setSelectedId} />
         {/* mt-24 = hlavička + záhlaví tabulky, aby detail začínal na úrovni prvního řádku */}
         <div className="xl:sticky xl:top-5 xl:mt-24 xl:self-start">

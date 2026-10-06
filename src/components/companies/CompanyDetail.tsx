@@ -39,7 +39,9 @@ function DetailContent({ company }: { company: CompanyDetailData }) {
       <div className="flex flex-wrap items-center gap-3">
         <CategoryBadge category={company.category} />
         <span className={`font-medium ${stateColorClass(company.state)}`}>
-          {COMPANY_STATE_LABELS[company.state]} {COMPANY_ROLE_LABELS[company.role]?.toLowerCase()}
+          {/* neznámou hodnotu z Raynetu ukážu aspoň jako kód, stejně jako v tabulce */}
+          {COMPANY_STATE_LABELS[company.state] ?? company.state}{' '}
+          {COMPANY_ROLE_LABELS[company.role]?.toLowerCase() ?? company.role}
         </span>
       </div>
 

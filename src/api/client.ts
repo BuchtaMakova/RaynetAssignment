@@ -38,7 +38,6 @@ function buildUrl(path: string, params?: QueryParams): string {
 function errorMessage(status: number, body: unknown): string {
   if (status === 401) return 'Neplatné přihlašovací údaje k Raynet API (zkontroluj .env).'
   if (status === 429) return 'Byl překročen limit požadavků na Raynet API.'
-  // Raynet posílá chyby jako { success: false, error: "..." }
   if (body && typeof body === 'object' && 'error' in body && typeof body.error === 'string') {
     return body.error
   }
@@ -46,9 +45,20 @@ function errorMessage(status: number, body: unknown): string {
 }
 
 export async function apiGet<T>(path: string, params?: QueryParams, signal?: AbortSignal): Promise<T> {
-  const res = await fetch(buildUrl(path, params), { signal })
+  let res: Response
+  try {
+    res = await fetch(buildUrl(path, params), { signal })
+  } catch (error) {
+    // zrušený požadavek musí projít dál, TanStack Query ho pozná a ignoruje
+    if (signal?.aborted) throw error
+    throw new ApiError(0, 'Nepodařilo se spojit se serverem. Zkontrolujte připojení a že běží npm run dev.')
+  }
   const body: unknown = await res.json().catch(() => null)
 
   if (!res.ok) throw new ApiError(res.status, errorMessage(res.status, body))
+  // 200, ale ne JSON – typicky neběží proxy a místo API přijde index.html
+  if (body === null) {
+    throw new ApiError(res.status, 'Server nevrátil data z Raynetu. Aplikace musí běžet přes npm run dev nebo npm run preview.')
+  }
   return body as T
 }

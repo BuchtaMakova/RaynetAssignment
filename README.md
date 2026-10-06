@@ -12,7 +12,7 @@ Webová aplikace, která zobrazuje klienty evidované v [Raynet CRM](https://ray
   - adresa s odkazem na mapu,
   - poznámka (formátovaný text), kontakty, další adresy a vlastník.
 - **Vzhled Raynetu:** rozbalovací postranní panel s bublinami, barvy stavů a kategorií z číselníku Raynetu, profilové fotky vlastníků.
-- **Ovládání klávesnicí** (Tab + Enter) a responzivní rozložení. Na užších obrazovkách je detail pod tabulkou.
+- **Responzivní rozložení:** na užších obrazovkách je detail pod tabulkou.
 
 ## Spuštění
 

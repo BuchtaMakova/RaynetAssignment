@@ -1,4 +1,4 @@
-import type { KeyboardEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { COMPANY_ROLE_LABELS, type Company } from "../../api/companies";
 import { CategoryBadge, OwnerName, StateText } from "./CompanyBadges";
 
@@ -95,23 +95,14 @@ function CompanyRow({
   selected: boolean;
   onSelect: () => void;
 }) {
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      onSelect();
-    }
-  };
-
   return (
     <div
       role="row"
-      tabIndex={0}
       aria-selected={selected}
       onClick={onSelect}
-      onKeyDown={handleKeyDown}
       style={{ gridTemplateColumns: GRID_COLUMNS }}
       // styl podle .xTableBody__row z Raynetu
-      className="grid h-7.5 cursor-pointer items-center rounded bg-white shadow-raynet-card outline-none hover:bg-raynet-row-hover focus-visible:ring-2 focus-visible:ring-raynet-blue/40 aria-selected:bg-raynet-selected"
+      className="grid h-7.5 cursor-pointer items-center rounded bg-white shadow-raynet-card hover:bg-raynet-row-hover aria-selected:bg-raynet-selected"
     >
       <Cell className="pl-4 font-medium">{company.name}</Cell>
       <Cell>
