@@ -63,7 +63,6 @@ export interface Company {
   tags: string[]
 }
 
-// detail má navíc všechny adresy a logo
 export interface CompanyDetail extends Company {
   addresses: CompanyAddress[]
   employeesNumber: number | null

@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { getCompanyCategories } from '../api/codelists'
 
-// mapa id kategorie -> barva pro štítky
 export function useCompanyCategoryColors() {
   return useQuery({
     queryKey: ['companyCategories'],

@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react'
-import { COMPANY_ROLE_LABELS, COMPANY_STATE_LABELS, type CompanyAddress, type CompanyDetail as CompanyDetailData } from '../api/companies'
-import { useCompany } from '../hooks/useCompany'
-import { useImage } from '../hooks/useImage'
+import { COMPANY_ROLE_LABELS, COMPANY_STATE_LABELS, type CompanyAddress, type CompanyDetail as CompanyDetailData } from '../../api/companies'
+import { useCompany } from '../../hooks/useCompany'
+import { useImage } from '../../hooks/useImage'
 import { CategoryBadge, OwnerName } from './CompanyBadges'
 import { stateColorClass } from './companyStyles'
-import { BuildingIcon, MapPinIcon } from './icons'
-import { RichText } from './RichText'
+import { BuildingIcon, MapPinIcon } from '../ui/icons'
+import { RichText } from '../ui/RichText'
 
 interface CompanyDetailProps {
   id: number | null

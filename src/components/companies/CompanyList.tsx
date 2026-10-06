@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { useCompanies } from '../hooks/useCompanies'
-import { useDebouncedValue } from '../hooks/useDebouncedValue'
+import { useCompanies } from '../../hooks/useCompanies'
+import { useDebouncedValue } from '../../hooks/useDebouncedValue'
 import { CompanyTable } from './CompanyTable'
-import { SearchIcon } from './icons'
-import { Pagination } from './Pagination'
+import { SearchIcon } from '../ui/icons'
+import { Pagination } from '../ui/Pagination'
 
 const PAGE_SIZE_OPTIONS = [10, 20, 50]
 
@@ -69,7 +69,6 @@ export function CompanyList({ selectedId, onSelect }: CompanyListProps) {
             totalCount={data?.totalCount ?? 0}
             onPageChange={setPage}
             onPageSizeChange={(newSize) => {
-              // jiná velikost stránky = zpátky na první
               setPageSize(newSize)
               setPage(0)
             }}

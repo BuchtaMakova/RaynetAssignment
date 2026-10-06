@@ -13,8 +13,8 @@ import {
   PlusCircleIcon,
   SearchIcon,
   UsersIcon,
-} from '../icons'
-import { Tooltip, TooltipProvider } from '../Tooltip'
+} from '../ui/icons'
+import { Tooltip, TooltipProvider } from '../ui/Tooltip'
 
 // loga beru z CDN Raynetu, sbalené menu má jen symbol
 const LOGO_URL = 'https://cdn.raynetcrm.com/resources_app/resources/03ca3e6a1962cbc2.svg'

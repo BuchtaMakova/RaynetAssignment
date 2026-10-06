@@ -35,6 +35,8 @@ Webová aplikace, která zobrazuje klienty evidované v [Raynet CRM](https://ray
    cp .env.example .env
    ```
 
+   Ve Windows příkazovém řádku (cmd) místo toho `copy .env.example .env`.
+
 3. Doplňte do `.env` přihlašovací údaje k Raynetu:
 
    | Proměnná          | Co do ní patří                                                                                          |
@@ -98,15 +100,23 @@ src/
 │   └── images.ts       obrázky (logo, fotka)
 ├── hooks/            načítání dat přes TanStack Query + useDebouncedValue
 ├── components/
-│   ├── CompanyList.tsx     hledání, stránkování, stav seznamu
-│   ├── CompanyTable.tsx    tabulka klientů
-│   ├── CompanyDetail.tsx   detail klienta
-│   ├── Pagination.tsx      patička se stránkováním
-│   ├── Tooltip.tsx         bubliny (Radix UI)
-│   ├── RichText.tsx        bezpečné zobrazení HTML poznámek
-│   └── layout/AppLayout.tsx  postranní panel a lišta se záložkami
+│   ├── companies/        všechno ke klientům
+│   │   ├── CompanyList.tsx     hledání, stránkování, stav seznamu
+│   │   ├── CompanyTable.tsx    tabulka klientů
+│   │   ├── CompanyDetail.tsx   detail klienta
+│   │   ├── CompanyBadges.tsx   štítek kategorie, barevný stav, vlastník s fotkou
+│   │   └── companyStyles.ts    barvy stavů klienta
+│   ├── ui/               obecné komponenty, nesouvisí s klienty
+│   │   ├── Pagination.tsx      patička se stránkováním
+│   │   ├── Tooltip.tsx         bubliny (Radix UI)
+│   │   ├── RichText.tsx        bezpečné zobrazení HTML poznámek
+│   │   └── icons.tsx           SVG ikony
+│   └── layout/
+│       └── AppLayout.tsx       postranní panel a lišta se záložkami
 ├── App.tsx           rozložení master-detail, drží vybraného klienta
-└── main.tsx          nastavení TanStack Query
+├── main.tsx          nastavení TanStack Query
+└── index.css         Tailwind a barvy Raynetu jako tokeny
+vite.config.ts        proxy na Raynet API (přidává přihlašovací údaje z .env)
 ```
 
 ## Rozhodnutí, která stojí za zmínku

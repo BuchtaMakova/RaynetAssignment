@@ -1,4 +1,4 @@
-import type { CompanyState } from '../api/companies'
+import type { CompanyState } from '../../api/companies'
 
 const STATE_COLORS: Record<CompanyState, string> = {
   A_POTENTIAL: 'text-raynet-amber',

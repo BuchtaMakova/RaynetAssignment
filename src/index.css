@@ -12,13 +12,11 @@
   --color-raynet-text: #262a32;
   --color-raynet-teal: #0088a2;
   --color-raynet-blue: #00a2d4;
-  --color-raynet-button: #43ae00;
   /* stavy klienta, z jejich xCompanyStatus */
   --color-raynet-green: #60ae00;
   --color-raynet-amber: #c29500;
   --color-raynet-red: #f47559;
-  /* tyhle jsem u nich nenašel, jsou moje */
-  --color-raynet-table-head: #eceff3;
+  /* vybraný řádek, tuhle barvu jsem u nich nenašel */
   --color-raynet-selected: #e5f6da;
   /* jejich --background-hover-color */
   --color-raynet-row-hover: #e4f7ff;

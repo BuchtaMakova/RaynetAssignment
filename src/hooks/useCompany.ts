@@ -5,7 +5,6 @@ export function useCompany(id: number | null) {
   return useQuery({
     queryKey: ['company', id],
     queryFn: ({ signal }) => getCompany(id!, signal),
-    // bez vybraného klienta nic nenačítám
     enabled: id !== null,
   })
 }

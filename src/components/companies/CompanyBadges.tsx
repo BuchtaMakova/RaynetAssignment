@@ -1,8 +1,8 @@
-import { COMPANY_STATE_LABELS, type Company, type CompanyState } from '../api/companies'
-import { useCompanyCategoryColors } from '../hooks/useCompanyCategoryColors'
-import { usePersonPhoto } from '../hooks/usePersonPhoto'
+import { COMPANY_STATE_LABELS, type Company, type CompanyState } from '../../api/companies'
+import { useCompanyCategoryColors } from '../../hooks/useCompanyCategoryColors'
+import { usePersonPhoto } from '../../hooks/usePersonPhoto'
 import { stateColorClass } from './companyStyles'
-import { UserIcon } from './icons'
+import { UserIcon } from '../ui/icons'
 
 const FALLBACK_CATEGORY_COLOR = '#8a9196'
 

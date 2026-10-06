@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { CompanyDetail } from './components/CompanyDetail'
-import { CompanyList } from './components/CompanyList'
+import { CompanyDetail } from './components/companies/CompanyDetail'
+import { CompanyList } from './components/companies/CompanyList'
 import { AppLayout } from './components/layout/AppLayout'
 
 function App() {
